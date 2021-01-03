@@ -31,8 +31,8 @@ const SearchScreen = () => {
       
       <ScrollView>
         <ResultsList results={groupedResults['$']} title="Cost Effective" />
-        {/* <ResultsList results={groupedResults['$$']} title="Bit Pricier"/> */}
-        {/* <ResultsList results={groupedResults['$$$']} title="Big Spender" /> */}
+        <ResultsList results={groupedResults['$$']} title="Bit Pricier"/>
+        <ResultsList results={groupedResults['$$$']} title="Big Spender" />
       </ScrollView>
     </View>
   )
