@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { View, Text, Image, StyleSheet, FlatList } from 'react-native'
+import { useRoute } from '@react-navigation/native';
 import yelp from '../api/yelp'
 
-const ResultsShowScreen = ({ navigation }) => {
+const GalleryScreen = ( ) => {
+  const route = useRoute();
+  const { id } = route.params
   const [result, setResult] = React.useState()
-  const id = navigation.getParam('id')
 
   const getResult = async id => {
     const {data } = await yelp.get(id)
@@ -18,7 +20,6 @@ const ResultsShowScreen = ({ navigation }) => {
   if (!result)
     return null
 
-    console.log(result)
   return (
     <View style={styles.container}>
       <Text style={styles.name}>{result.name}</Text>
@@ -50,4 +51,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export { ResultsShowScreen }
+export { GalleryScreen }

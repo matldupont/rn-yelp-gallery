@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { View, Image, Text, StyleSheet } from 'react-native'
 
-const ResultsDetail = ({ item: { image_url, name, review_count, rating } }) => {
+const ResultDetails = ({ item: { image_url, name, review_count, rating } }) => {
   return (
     <View style={styles.container}>
       {image_url ? <Image style={styles.image} source={{ uri: image_url }} /> : null}
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export { ResultsDetail }
+export { ResultDetails }

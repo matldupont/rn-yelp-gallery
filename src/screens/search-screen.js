@@ -1,8 +1,8 @@
 import * as React from 'react'
 import axios from 'axios'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import { SearchBar } from '../components/SearchBar'
-import { ResultsList } from '../components/ResultsList'
+import { SearchBar } from '../components/search-bar'
+import { ResultsList } from '../components/results-list'
 import yelp from '../api/yelp'
 import { useResults } from '../hooks/use-results'
 
@@ -31,8 +31,8 @@ const SearchScreen = () => {
       
       <ScrollView>
         <ResultsList results={groupedResults['$']} title="Cost Effective" />
-        <ResultsList results={groupedResults['$$']} title="Bit Pricier"/>
-        <ResultsList results={groupedResults['$$$']} title="Big Spender" />
+        {/* <ResultsList results={groupedResults['$$']} title="Bit Pricier"/> */}
+        {/* <ResultsList results={groupedResults['$$$']} title="Big Spender" /> */}
       </ScrollView>
     </View>
   )

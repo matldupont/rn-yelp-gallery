@@ -1,23 +1,23 @@
 import * as React from 'react'
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
-import { ResultsDetail } from './ResultsDetail'
-import { withNavigation } from 'react-navigation'
+import { useNavigation } from '@react-navigation/native';
+import { ResultDetails } from './result-details'
 
-const ResultsList = withNavigation(({ title, results, navigation }) => {
+const ResultsList = ({ title, results }) => {
+  const navigation = useNavigation();
   if (!results?.length) return null
 
   return (
     <View style={styles.list}>
       <Text style={styles.title}>{title}</Text>
-      {/* <Text>{`Found ${results?.length || 0} results`}</Text> */}
       <FlatList
         horizontal
         data={results}
         keyExtractor={results => results.id}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity onPress={() => navigation.navigate('ResultsShow', { id: item.id})}>
-              <ResultsDetail item={item} />
+            <TouchableOpacity onPress={() => navigation.navigate('Gallery', { id: item.id})}>
+              <ResultDetails item={item} />
             </TouchableOpacity>
           )
         }}
@@ -25,7 +25,7 @@ const ResultsList = withNavigation(({ title, results, navigation }) => {
       />
     </View>
   )
-})
+}
 
 const styles = StyleSheet.create({
   list: {
